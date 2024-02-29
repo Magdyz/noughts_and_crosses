@@ -1,0 +1,74 @@
+body {
+  background: linear-gradient(45deg, #f5da89, #f0cf73, #f7c02a);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#reset {
+  font-size: 1.5em;
+  background: #ae2012;
+  border-radius: 18px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: monospace;
+  height: 50px;
+  width: 5em;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#reset:hover {
+  box-shadow: rgba(248, 248, 248, 0.5) 0 1px 30px;
+  transition-duration: 0.1s;
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
+}
+container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.board {
+  padding: 0;
+  width: 365px;
+  height: 365px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+div.cell {
+  background: #94d2bd;
+  color: #001219;
+  font-size: 5em;
+  text-align: center;
+  font-family: fantasy;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
