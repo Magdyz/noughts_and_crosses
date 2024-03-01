@@ -1,7 +1,18 @@
 let currentPlayer = "X";
 let count = 0;
 let allowCellClick = true;
+const counter = 200,
+  defaults = {
+    origin: { y: 0.7 },
+  };
 
+function fire(particleRatio, opts) {
+  confetti(
+    Object.assign({}, defaults, opts, {
+      particleCount: Math.floor(counter * particleRatio),
+    })
+  );
+}
 const playersTurn = document.getElementById("player-turn");
 
 const winningConditionsMet = (sign, playersTurnElement, playerNumber) => {
@@ -25,6 +36,7 @@ const winningConditionsMet = (sign, playersTurnElement, playerNumber) => {
     (cell7 === sign && cell8 === sign && cell9 === sign)
   ) {
     winningColors();
+    fireConfetti();
     playersTurnElement.innerText = `PLAYER ${playerNumber} WINS!`;
     allowCellClick = false;
     setTimeout(resetCells, 2000);
@@ -39,10 +51,9 @@ const draw = (playsArr, playersTurnElement) => {
     setTimeout(resetCells, 2000);
   }
 };
-  let plays = [];
+let plays = [];
 
 const startGame = () => {
-
   for (let i = 1; i <= 9; i++) {
     let cell = document.getElementById("cell" + i);
     cell.addEventListener("click", () => {
@@ -101,8 +112,36 @@ const TieColors = () => {
   document.getElementById("cell6").innerText = "E";
 };
 
-
 const resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", resetCells);
 
 startGame();
+
+// confetti
+const fireConfetti = () => {
+  fire(0.25, {
+    spread: 26,
+    startVelocity: 55,
+  });
+
+  fire(0.2, {
+    spread: 60,
+  });
+
+  fire(0.35, {
+    spread: 100,
+    decay: 0.91,
+    scalar: 0.8,
+  });
+
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 25,
+    decay: 0.92,
+    scalar: 1.2,
+  });
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 45,
+  });
+};
